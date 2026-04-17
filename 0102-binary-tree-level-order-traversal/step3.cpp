@@ -15,21 +15,21 @@ public:
         vector<vector<int>> result;
         if (!root) return result;
 
-        queue<TreeNode*> q;
-        q.push(root);
+        queue<TreeNode*> nodes;
+        nodes.push(root);
 
-        while (!q.empty()) {
-            int size = q.size();
+        while (!nodes.empty()) {
+            int size = nodes.size();
             vector<int> level;
 
             for (int i = 0; i < size; i++) {
-                TreeNode* node = q.front();
-                q.pop();
+                TreeNode* node = nodes.front();
+                nodes.pop();
 
                 level.push_back(node->val);
 
-                if (node->left) q.push(node->left);
-                if (node->right) q.push(node->right);
+                if (node->left) nodes.push(node->left);
+                if (node->right) nodes.push(node->right);
             }
 
             result.push_back(level);
